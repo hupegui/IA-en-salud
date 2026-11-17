@@ -124,16 +124,10 @@
         margin-bottom: 1rem;
       }
       .module-btn {
+        display: block;
         width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 0.5rem;
         text-align: left;
-        padding: 0.75rem;
-        font-weight: 700;
-        font-size: 0.85rem;
-        text-transform: uppercase;
+        padding: 0.8rem 0.9rem;
         color: #fff;
         background: #4338ca;
         border: 0;
@@ -143,6 +137,26 @@
       }
       .module-btn:hover {
         background: #4f46e5;
+      }
+      .module-btn.current,
+      .nav-welcome.current {
+        background: #6366f1;
+        box-shadow: 0 0 0 2px #a5b4fc;
+      }
+      .module-btn .mt-head {
+        display: block;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        line-height: 1.3;
+      }
+      .module-btn .mt-tail {
+        display: block;
+        margin-top: 0.25rem;
+        font-size: 0.82rem;
+        font-weight: 400;
+        line-height: 1.35;
+        color: #e0e7ff;
       }
 
       .content-col {
@@ -222,27 +236,40 @@
         color: #1e3a8a;
         margin: 0 0 1.5rem;
       }
-      .welcome-box .welcome-text {
-        color: #1e40af;
-        margin: 0;
-        line-height: 1.7;
-        white-space: pre-wrap;
-      }
       .module-head {
-        margin-bottom: 2.5rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 3px solid #4f46e5;
       }
       .module-title {
         margin: 0;
-        font-size: 1.9rem;
-        font-weight: 900;
+        line-height: 1.2;
+        text-transform: none;
+      }
+      .module-title .mt-head {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        color: #4f46e5;
+      }
+      .module-title .mt-tail {
+        display: block;
+        margin-top: 0.35rem;
+        font-size: 1.75rem;
+        font-weight: 800;
+        letter-spacing: -0.01em;
         color: #1e1b4b;
-        text-transform: uppercase;
-        letter-spacing: -0.03em;
+      }
+      .module-title .mt-head:only-child {
+        font-size: 1.75rem;
+        letter-spacing: -0.01em;
+        color: #1e1b4b;
       }
       .module-desc {
         display: inline-block;
-        margin-top: 0.5rem;
-        padding: 0.25rem 1rem;
+        margin-top: 0.6rem;
+        padding: 0.2rem 0.9rem;
         border-radius: 999px;
         font-weight: 700;
         color: #4338ca;
@@ -251,57 +278,66 @@
       .lessons {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
       }
-
-      details.lesson {
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
-        border-radius: 1.5rem;
-        overflow: hidden;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      .lesson {
+        padding: 1.4rem 0;
+        border-top: 1px solid #e5e7eb;
       }
-      details.lesson summary {
-        list-style: none;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 1.5rem;
-        cursor: pointer;
-        background: #f1f5f9;
+      .lesson:first-child {
+        padding-top: 0;
+        border-top: 0;
       }
-      details.lesson summary::-webkit-details-marker {
-        display: none;
-      }
-      details.lesson summary:hover {
-        background: #e2e8f0;
-      }
-      details.lesson summary h3 {
-        margin: 0;
-        font-size: 1.25rem;
+      .lesson-title {
+        margin: 0 0 0.6rem;
+        font-size: 1.2rem;
         font-weight: 700;
+        line-height: 1.3;
         color: #312e81;
-      }
-      .chev {
-        color: #312e81;
-        transition: transform 0.3s;
-        flex-shrink: 0;
-      }
-      details[open] > summary .chev {
-        transform: rotate(180deg);
       }
       .lesson-body {
-        padding: 1rem 2rem 2rem;
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1rem;
       }
-      .lesson-content {
+      .lesson-content,
+      .welcome-text {
+        max-width: 72ch;
+        font-size: 0.98rem;
+        line-height: 1.6;
         color: #334155;
-        line-height: 1.7;
-        white-space: pre-wrap;
         overflow-wrap: anywhere;
+      }
+      .welcome-text {
+        color: #1e40af;
+        line-height: 1.7;
+      }
+      .lesson-content p,
+      .welcome-text p {
+        margin: 0 0 0.65rem;
+      }
+      .lesson-content h3,
+      .lesson-content h4 {
+        margin: 1.1rem 0 0.35rem;
+        font-size: 1.02rem;
+        font-weight: 700;
+        line-height: 1.35;
+        color: #1e1b4b;
+      }
+      .lesson-content ul,
+      .lesson-content ol {
+        margin: 0.25rem 0 0.8rem;
+        padding-left: 1.3rem;
+      }
+      .lesson-content li {
+        margin: 0.2rem 0;
+      }
+      .lesson-content > :first-child,
+      .welcome-text > :first-child {
+        margin-top: 0;
+      }
+      .lesson-content > :last-child,
+      .welcome-text > :last-child {
+        margin-bottom: 0;
       }
       .inline-link {
         color: #4338ca;
@@ -423,9 +459,6 @@
         #main-content {
           padding: 1.5rem;
         }
-        .lesson-body {
-          padding: 1rem 1.25rem 1.5rem;
-        }
         .welcome-box {
           padding: 1.5rem;
         }
@@ -488,9 +521,9 @@
                   de: "1. Terminologie und technologischer Fortschritt.",
                 },
                 content: {
-                  es: "Conocimientos básicos (Nivel inicial)\nFundamentos y terminología en contexto: IA, ML, DL, IA Generativa (GenAI), embeddings/vectores, diferentes plataformas (Open AI, Microsoft, Google, Mistral, Perplexity, Grok, Deepseek).\n\nProporciona los fundamentos de manera práctica. Incluye aprendizaje automático, aprendizaje profundo, IA generativa y terminología general de la IA para personas sin conocimientos técnicos previos.\nConocimientos básicos (Nivel inicial)",
-                  en: "Basic Knowledge (Beginner Level)\nFundamentals and terminology in context: AI, ML, DL, Generative AI (GenAI), embeddings/vectors, various platforms (Open AI, Microsoft, Google, Mistral, Perplexity, Grok, Deepseek).\n\nProvides the fundamentals in a practical way. Includes machine learning, deep learning, generative AI, and general AI terminology for people with no prior technical knowledge.\nBasic Knowledge (Beginner Level)",
-                  de: "Grundlegende Kenntnisse (Anfängerniveau)\nGrundlagen und Terminologie im Kontext: KI, ML, DL, generative KI (GenAI), Embeddings/Vektoren, verschiedene Plattformen (Open AI, Microsoft, Google, Mistral, Perplexity, Grok, Deepseek).\n\nVermittelt die Grundlagen auf praktische Weise. Beinhaltet maschinelles Lernen, Deep Learning, generative KI und allgemeine KI-Terminologie für Personen ohne Vorkenntnisse.\nGrundlegende Kenntnisse (Anfängerniveau)",
+                  es: "Fundamentos y terminología en contexto: IA, ML, DL, IA Generativa (GenAI), embeddings/vectores, diferentes plataformas (Open AI, Microsoft, Google, Mistral, Perplexity, Grok, Deepseek).\n\nProporciona los fundamentos de manera práctica. Incluye aprendizaje automático, aprendizaje profundo, IA generativa y terminología general de la IA para personas sin conocimientos técnicos previos.\nConocimientos básicos (Nivel inicial)",
+                  en: "Fundamentals and terminology in context: AI, ML, DL, Generative AI (GenAI), embeddings/vectors, various platforms (Open AI, Microsoft, Google, Mistral, Perplexity, Grok, Deepseek).\n\nProvides the fundamentals in a practical way. Includes machine learning, deep learning, generative AI, and general AI terminology for people with no prior technical knowledge.\nBasic Knowledge (Beginner Level)",
+                  de: "Grundlagen und Terminologie im Kontext: KI, ML, DL, generative KI (GenAI), Embeddings/Vektoren, verschiedene Plattformen (Open AI, Microsoft, Google, Mistral, Perplexity, Grok, Deepseek).\n\nVermittelt die Grundlagen auf praktische Weise. Beinhaltet maschinelles Lernen, Deep Learning, generative KI und allgemeine KI-Terminologie für Personen ohne Vorkenntnisse.\nGrundlegende Kenntnisse (Anfängerniveau)",
                 },
                 resource: "",
                 resource_filename: "",
@@ -640,7 +673,7 @@
           },
           {
             title: {
-              de: "Modul 4: Optional: Ethische und gesellschaftliche Diskussionen.",
+              de: "Modul 4. Optional: Ethische und gesellschaftliche Diskussionen.",
               en: "Module 4. Optional: Ethical and social debates.",
               es: "Módulo 4. Opcional: Debates éticos y sociales.",
             },
@@ -658,6 +691,220 @@
                   es: "Este espacio está concebido para discutir temas como los retos sociales del uso de la IA, la exclusión digital, las dificultades de comunicación, la pérdida de empleo, el control por parte de la IA, el control cultural a través de la IA, etc., así como el consumo de agua, energía, espacio y tiempo, entre otros.",
                 },
                 links: { de: "", en: "", es: "" },
+                resource: "",
+                resource_filename: "",
+              },
+            ],
+          },
+
+          {
+            title: {
+              es: "Módulo 5. Opcional: Sistema de salud y automatizaciones con IA",
+              en: "Module 5. Optional: Healthcare system and AI automations",
+              de: "Modul 5. Optional: Gesundheitssystem und KI-Automatisierungen",
+            },
+            description: {
+              es: "Cómo la inteligencia artificial puede mejorar la eficiencia de los sistemas de salud mediante automatización, apoyo a la atención y gestión inteligente de recursos.",
+              en: "How artificial intelligence can improve healthcare system efficiency through automation, care support and intelligent resource management.",
+              de: "Wie künstliche Intelligenz die Effizienz von Gesundheitssystemen durch Automatisierung, Unterstützungsleistungen und intelligentes Ressourcenmanagement verbessern kann.",
+            },
+            lessons: [
+              {
+                title: {
+                  es: "Introducción",
+                  en: "Introduction",
+                  de: "Einführung",
+                },
+                content: {
+                  es: `<p>Presenta la situación del sistema de salud, el contexto con cifras sobre presión asistencial, datos desaprovechados y carga administrativa, y explica por qué la IA puede ayudar a mejorar la eficiencia, la priorización y la coordinación.</p>`,
+                  en: `<h3>Situation and context</h3>
+          <p>Health systems face growing pressure from population ageing, the increase in chronic diseases, staff shortages, operating costs and demand for more timely care.</p>
+          <p>A significant share of healthcare staff time is spent on documentation, information retrieval, coordination between services, administrative management and repetitive tasks. At the same time, much health data remains fragmented or unused for decision-making.</p>
+
+          <h3>Context and figures</h3>
+          <ul>
+          <li>The OECD states that AI is already used in health systems across all OECD countries, with applications in medical imaging, diagnosis, patient monitoring, public health and operational efficiency.</li>
+          <li>The OECD estimates that up to 97% of health data remains unused for clinical decision-making, representing a major opportunity to improve care through analytics and artificial intelligence.</li>
+          <li>Evidence cited by the OECD indicates that ambient voice technology can reduce clinical documentation time by 85.8%, saving an average of 5.27 minutes per case compared with manual writing.</li>
+          <li>The WHO highlights that AI can support diagnosis, treatment planning, pandemic preparedness and health-system decision-making, provided its use is ethical, safe and supervised by people.</li>
+          </ul>
+
+          <h3>Why can AI help?</h3>
+          <p>AI can process large volumes of information, identify patterns, anticipate needs, prioritise cases and automate repetitive tasks. This can free clinical staff time for direct care, reduce delays and improve system coordination.</p>
+          <p><strong>Key idea:</strong> AI does not replace clinical judgement or professional responsibility. Its best use is to augment human capabilities and improve health-system processes.</p>`,
+                  de: `<h3>Lage und Kontext</h3>
+          <p>Gesundheitssysteme stehen unter wachsendem Druck durch die alternde Bevölkerung, die Zunahme chronischer Erkrankungen, Personalmangel, Betriebskosten und den Bedarf an zeitnaher Versorgung.</p>
+          <p>Ein erheblicher Teil der Zeit des Gesundheitspersonals wird für Dokumentation, Informationssuche, Koordination zwischen Diensten, Verwaltung und repetitive Aufgaben verwendet. Gleichzeitig bleiben viele Gesundheitsdaten fragmentiert oder werden für Entscheidungen nicht genutzt.</p>
+
+          <h3>Kontext und Zahlen</h3>
+          <ul>
+          <li>Die OECD stellt fest, dass KI bereits in Gesundheitssystemen aller OECD-Länder eingesetzt wird, unter anderem in der medizinischen Bildgebung, Diagnostik, Patientenüberwachung, öffentlichen Gesundheit und operativen Effizienz.</li>
+          <li>Die OECD schätzt, dass bis zu 97% der Gesundheitsdaten für klinische Entscheidungen ungenutzt bleiben. Dies bietet große Möglichkeiten zur Verbesserung der Versorgung durch Datenanalyse und künstliche Intelligenz.</li>
+          <li>Die von der OECD zitierte Evidenz zeigt, dass ambient-voice-Technologien die Zeit für die klinische Dokumentation um 85,8% reduzieren und im Durchschnitt 5,27 Minuten pro Fall gegenüber manuellem Schreiben einsparen können.</li>
+          <li>Die WHO betont, dass KI Diagnostik, Behandlungsplanung, Pandemievorsorge und Entscheidungen im Gesundheitssystem unterstützen kann, sofern der Einsatz ethisch, sicher und durch Menschen überwacht ist.</li>
+          </ul>
+
+          <h3>Warum kann KI helfen?</h3>
+          <p>KI kann große Datenmengen verarbeiten, Muster erkennen, Bedarfe antizipieren, Fälle priorisieren und repetitive Aufgaben automatisieren. Dies kann Zeit des klinischen Personals für die direkte Patientenversorgung freisetzen, Wartezeiten reduzieren und die Koordination verbessern.</p>
+          <p><strong>Kernidee:</strong> KI ersetzt neither klinisches Urteilsvermögen noch professionelle Verantwortung. Ihr bester Einsatz besteht darin, menschliche Fähigkeiten zu erweitern und Prozesse im Gesundheitssystem zu verbessern.</p>`,
+                },
+                links: {
+                  es: "",
+                  en: "",
+                  de: "",
+                },
+                resource: "",
+                resource_filename: "",
+              },
+              {
+                title: {
+                  es: "Automatización operativa y administrativa",
+                  en: "Operational and administrative automation",
+                  de: "Operative und administrative Automatisierung",
+                },
+                content: {
+                  es: `<p>Explica qué es la automatización, qué tareas puede asumir y cómo se rediseñan los flujos de procesos, por ejemplo en agendamiento, triaje administrativo, documentos, facturación, camas e insumos.</p>`,
+                  en: `<h3>Automation</h3>
+          <p>Automation involves using technology to perform repetitive, standardised and rule-based tasks. In healthcare, it can reduce manual errors, accelerate workflows and improve the availability of information for decision-making.</p>
+
+          <h3>What can be automated?</h3>
+          <ul>
+          <li>Scheduling, reminders, rescheduling and appointment confirmation.</li>
+          <li>Administrative triage and routing of enquiries.</li>
+          <li>Digitisation and data extraction from documents, orders and reports.</li>
+          <li>Data validation, duplicate detection and quality control.</li>
+          <li>Coding, billing and authorisation management.</li>
+          <li>Management of beds, operating rooms, supplies, equipment and shifts.</li>
+          <li>Automated responses to frequently asked questions, with human escalation when needed.</li>
+          </ul>
+
+          <h3>Process workflows</h3>
+          <p>Before automating, it is necessary to map the current process: who performs each task, which systems they use, what information they need, where delays occur and which decisions must remain under human supervision.</p>
+
+          <p><strong>Example of an automated scheduling workflow:</strong></p>
+          <ol>
+          <li>The patient requests an appointment through the web, telephone or app.</li>
+          <li>The system checks availability, specialty, priority and prior requirements.</li>
+          <li>AI proposes available times and sends automatic confirmation.</li>
+          <li>The system sends reminders and manages rescheduling.</li>
+          <li>If the case requires clinical or administrative validation, it is escalated to a person.</li>
+          </ol>
+
+          <p><strong>Practical principle:</strong> automate high-volume, low-risk and highly repetitive processes first. Complex clinical decisions must retain human supervision.</p>`,
+                  de: `<h3>Automatisierung</h3>
+          <p>Automatisierung bedeutet, wiederholte, standardisierte und regelbasierte Aufgaben mithilfe von Technologie auszuführen. Im Gesundheitswesen kann sie manuelle Fehler reduzieren, Arbeitsabläufe beschleunigen und die Verfügbarkeit von Informationen für Entscheidungen verbessern.</p>
+
+          <h3>Was kann automatisiert werden?</h3>
+          <ul>
+          <li>Terminvereinbarung, Erinnerungen, Umbuchung und Terminbestätigung.</li>
+          <li>Administratives Triage und Weiterleitung von Anfragen.</li>
+          <li>Digitalisierung und Datenextraktion aus Dokumenten, Anordnungen und Berichten.</li>
+          <li>Datenvalidierung, Duplikaterkennung und Qualitätskontrolle.</li>
+          <li>Kodierung, Abrechnung und Verwaltung von Genehmigungen.</li>
+          <li>Verwaltung von Betten, Operationssälen, Material, Geräten und Schichten.</li>
+          <li>Automatische Antworten auf häufige Fragen, mit Weiterleitung an Personen bei Bedarf.</li>
+          </ul>
+
+          <h3>Prozessabläufe</h3>
+          <p>Vor der Automatisierung muss der aktuelle Prozess abgebildet werden: Wer führt welche Aufgabe aus, welche Systeme werden verwendet, welche Informationen sind erforderlich, wo entstehen Verzögerungen und welche Entscheidungen müssen unter menschlicher Aufsicht bleiben?</p>
+
+          <p><strong>Beispiel eines automatisierten Terminbuchungsablaufs:</strong></p>
+          <ol>
+          <li>Der Patient beantragt einen Termin über Website, Telefon oder App.</li>
+          <li>Das System prüft Verfügbarkeit, Fachbereich, Priorität und vorherige Anforderungen.</li>
+          <li>Die KI schlägt Termine vor und sendet eine automatische Bestätigung.</li>
+          <li>Das System sendet Erinnerungen und verwaltet Umbuchungen.</li>
+          <li>Wenn der Fall eine klinische oder administrative Validierung erfordert, wird er an eine Person weitergeleitet.</li>
+          </ol>
+
+          <p><strong>Praktischer Grundsatz:</strong> Zuerst Prozesse mit hohem Volumen, geringem Risiko und hoher Wiederholung automatisieren. Komplexe klinische Entscheidungen müssen unter menschlicher Aufsicht bleiben.</p>`,
+                },
+                links: {
+                  es: "",
+                  en: "",
+                  de: "",
+                },
+                resource: "",
+                resource_filename: "",
+              },
+              {
+                title: {
+                  es: "Implementación",
+                  en: "Implementation",
+                  de: "Umsetzung",
+                },
+                content: {
+                  es: `<p>Presenta los casos de uso de triaje y priorización, apoyo diagnóstico, documentación clínica asistida, gestión de medicamentos, seguimiento remoto e investigación y ensayos clínicos, junto con los requisitos de adopción responsable.</p>`,
+                  en: `<h3>Use cases</h3>
+          <p>Implementation should begin with a specific problem, available data, measurable indicators and a clear owner. Use cases must be validated in real conditions before being scaled across the organisation.</p>
+
+          <h3>Triage and prioritisation</h3>
+          <p>AI can analyse symptoms, medical history, vital signs and laboratory data to support the identification of patients at higher risk or with urgent needs. This can help reduce waiting times and allocate resources more efficiently.</p>
+
+          <h3>Diagnostic support</h3>
+          <p>AI models can analyse medical images, biomedical signals and clinical data to detect relevant patterns. Their role is to support professional decision-making, not replace it; every recommendation must be reviewed and validated by qualified clinical staff.</p>
+
+          <h3>Assisted clinical documentation</h3>
+          <p>AI can generate drafts of clinical notes, episode summaries, transcriptions and coding suggestions. This can reduce administrative burden and increase time available for direct care, always with human review before information is added to the medical record.</p>
+
+          <h3>Medication management</h3>
+          <p>Intelligent systems can support the review of interactions, dose alerts, medication reconciliation, therapeutic adherence and the detection of treatment-related risks.</p>
+
+          <h3>Remote monitoring</h3>
+          <p>Wearables, applications and telemonitoring platforms can generate continuous data on activity, vital signs, sleep and other indicators. AI can identify early alerts and help prioritise follow-up for higher-risk patients.</p>
+
+          <h3>Research and clinical trials</h3>
+          <p>AI can accelerate the identification of eligible candidates, improve recruitment, analyse research data and reduce operating costs in clinical trials. The WHO recognises this potential, provided privacy, security and ethical principles are respected.</p>
+
+          <h3>Implementation requirements</h3>
+          <ul>
+          <li>Define the problem, target population and success metric.</li>
+          <li>Ensure data quality, security, privacy and interoperability.</li>
+          <li>Integrate the solution with existing workflows and systems.</li>
+          <li>Establish human oversight and escalation protocols.</li>
+          <li>Evaluate performance, equity, errors and unintended effects.</li>
+          <li>Train staff and manage organisational change.</li>
+          </ul>
+
+          <p><strong>Golden rule:</strong> an AI solution must improve a real process, be validated locally and include outcome indicators. Efficiency must not be achieved at the expense of quality, equity or patient safety.</p>`,
+                  de: `<h3>Anwendungsfälle</h3>
+          <p>Die Umsetzung sollte mit einem konkreten Problem, verfügbaren Daten, messbaren Indikatoren und einer klaren Verantwortlichkeit beginnen. Anwendungsfälle müssen unter realen Bedingungen validiert werden, bevor sie organisationsweit skaliert werden.</p>
+
+          <h3>Triage und Priorisierung</h3>
+          <p>KI kann Symptome, Vorgeschichte, Vitalparameter und Laborwerte analysieren, um die Identifikation von Patienten mit höherem Risiko oder dringendem Bedarf zu unterstützen. Dies kann Wartezeiten reduzieren und Ressourcen effizienter zuweisen.</p>
+
+          <h3>Diagnostische Unterstützung</h3>
+          <p>KI-Modelle können medizinische Bilder, biomedizinische Signale und klinische Daten analysieren, um relevante Muster zu erkennen. Ihre Funktion besteht darin, professionelle Entscheidungen zu unterstützen, nicht zu ersetzen. Jede Empfehlung muss von qualifiziertem klinischem Personal geprüft und validiert werden.</p>
+
+          <h3>Unterstützte klinische Dokumentation</h3>
+          <p>KI kann Entwürfe für klinische Notizen, Episodenzusammenfassungen, Transkriptionen und Kodierungsvorschläge erstellen. Dies kann den administrativen Aufwand reduzieren und mehr Zeit für die direkte Versorgung schaffen, immer mit menschlicher Prüfung, bevor Informationen in die Patientenakte aufgenommen werden.</p>
+
+          <h3>Medikamentenmanagement</h3>
+          <p>Intelligente Systeme können die Prüfung von Wechselwirkungen, Dosierungswarnungen, Medikationsabgleich, Therapieadherence und die Erkennung behandlungsbezogener Risiken unterstützen.</p>
+
+          <h3>Remote-Monitoring</h3>
+          <p>Wearables, Apps und Telemonitoring-Plattformen können kontinuierlich Daten zu Aktivität, Vitalparametern, Schlaf und anderen Indikatoren erfassen. KI kann Frühwarnungen identifizieren und die Nachsorge für Risikopatienten priorisieren.</p>
+
+          <h3>Forschung und klinische Studien</h3>
+          <p>KI kann die Identifikation geeigneter Kandidaten beschleunigen, die Rekrutierung verbessern, Forschungsdaten analysieren und Betriebskosten klinischer Studien senken. Die WHO erkennt dieses Potenzial an, sofern Datenschutz, Sicherheit und ethische Grundsätze gewährleistet sind.</p>
+
+          <h3>Anforderungen an die Umsetzung</h3>
+          <ul>
+          <li>Problem, Zielgruppe und Erfolgsindikator definieren.</li>
+          <li>Datenqualität, Sicherheit, Datenschutz und Interoperabilität gewährleisten.</li>
+          <li>Die Lösung in bestehende Arbeitsabläufe und Systeme integrieren.</li>
+          <li>Menschliche Aufsicht und Eskalationsprotokolle festlegen.</li>
+          <li>Leistung, Gleichheit, Fehler und unbeabsichtigte Wirkungen bewerten.</li>
+          <li>Personal schulen und organisatorischen Wandel steuern.</li>
+          </ul>
+
+          <p><strong>Goldene Regel:</strong> Eine KI-Lösung muss einen realen Prozess verbessern, lokal validiert werden und Ergebnisindikatoren enthalten. Effizienz darf nicht auf Kosten von Qualität, Gleichheit oder Patientensicherheit erreicht werden.</p>`,
+                },
+                links: {
+                  es: "",
+                  en: "",
+                  de: "",
+                },
                 resource: "",
                 resource_filename: "",
               },
@@ -818,17 +1065,19 @@
           .replace(/'/g, "&#39;");
       }
 
-      function renderRichText(raw) {
-        const trimmed = (raw || "").trim();
-        // Si el usuario escribe código HTML explícito (ej. empieza con <script o <div), lo inyectamos directamente
-        if (trimmed.startsWith("<")) {
-          return raw;
-        }
+      function cleanEscapes(raw) {
+        return String(raw || "")
+          .replace(/\\n/g, "\n")
+          .replace(/<\\\//g, "</")
+          .replace(/\\\//g, "/");
+      }
+
+      function linkify(text) {
         const re = /https?:\/\/[^\s<>"']+/g;
         let out = "",
           last = 0,
           m;
-        while ((m = re.exec(raw)) !== null) {
+        while ((m = re.exec(text)) !== null) {
           let url = m[0],
             extra = "";
           const trail = url.match(/[.,;:!?)\]]+$/);
@@ -836,7 +1085,7 @@
             extra = trail[0];
             url = url.slice(0, url.length - extra.length);
           }
-          out += esc(raw.slice(last, m.index));
+          out += esc(text.slice(last, m.index));
           out +=
             '<a class="inline-link" href="' +
             esc(url) +
@@ -846,7 +1095,65 @@
             esc(extra);
           last = m.index + m[0].length;
         }
-        return out + esc(raw.slice(last));
+        return out + esc(text.slice(last));
+      }
+
+      function renderRichText(raw) {
+        const text = cleanEscapes(raw).trim();
+        if (!text) return "";
+        // HTML explícito: se inyecta tal cual
+        if (text.startsWith("<")) return text;
+        // Texto plano: párrafos separados por línea en blanco
+        return text
+          .split(/\n\s*\n/)
+          .map(function (block) {
+            return (
+              "<p>" +
+              block
+                .split("\n")
+                .map(function (l) {
+                  return linkify(l.trim());
+                })
+                .join("<br>") +
+              "</p>"
+            );
+          })
+          .join("");
+      }
+
+      function sentenceCase(txt, lang) {
+        txt = txt.trim();
+        if (!txt) return "";
+        // En alemán los sustantivos van en mayúscula: solo se asegura la inicial
+        if (lang === "de") return txt.charAt(0).toUpperCase() + txt.slice(1);
+        const out = txt
+          .split(/(\s+)/)
+          .map(function (w) {
+            const isAcronym =
+              w.length > 1 && w === w.toUpperCase() && /[A-Z]/.test(w);
+            return isAcronym ? w : w.toLowerCase();
+          })
+          .join("");
+        return out.charAt(0).toUpperCase() + out.slice(1);
+      }
+
+      function formatModuleTitle(title, lang) {
+        title = (title || "").trim();
+        const isModule = /^(m[oó]dulo|module|modul)\s+\d+/i.test(title);
+        const i = title.indexOf(":");
+        if (!isModule || i === -1) {
+          return (
+            '<span class="mt-head">' + esc(title.toUpperCase()) + "</span>"
+          );
+        }
+        const head = title.slice(0, i + 1).toUpperCase();
+        const tail = sentenceCase(title.slice(i + 1), lang);
+        return (
+          '<span class="mt-head">' +
+          esc(head) +
+          "</span>" +
+          (tail ? ' <span class="mt-tail">' + esc(tail) + "</span>" : "")
+        );
       }
 
       function normalizeUrl(u) {
@@ -943,26 +1250,26 @@
 
       function showSection(id) {
         activeSection = id;
+
         document.querySelectorAll(".content-section").forEach(function (s) {
           s.classList.remove("active");
         });
-        const target = document.getElementById(id);
-        if (target) {
-          target.classList.add("active");
-          // Ejecuta cualquier etiqueta <script> interna (como widgets de LinkedIn)
-          target.querySelectorAll("script").forEach(function (oldScript) {
-            const newScript = document.createElement("script");
-            Array.from(oldScript.attributes).forEach((attr) =>
-              newScript.setAttribute(attr.name, attr.value),
-            );
-            newScript.appendChild(document.createTextNode(oldScript.innerHTML));
-            oldScript.parentNode.replaceChild(newScript, oldScript);
+        document
+          .querySelectorAll(".module-btn, .nav-welcome")
+          .forEach(function (b) {
+            b.classList.remove("current");
           });
-        }
+
+        const target = document.getElementById(id);
+        if (target) target.classList.add("active");
+        const navBtn = document.getElementById("nav-" + id);
+        if (navBtn) navBtn.classList.add("current");
+
         if (window.innerWidth < 1024) {
           document.getElementById("sidebar").classList.remove("open");
           document.getElementById("overlay").classList.remove("show");
         }
+
         document.getElementById("main-content").scrollTop = 0;
       }
 
@@ -979,7 +1286,7 @@
         document.getElementById("header-course-title").textContent = titleText;
 
         let navHTML =
-          '<button class="nav-welcome" onclick="showSection(\'welcome-section\')">📢 ' +
+          '<button class="nav-welcome" id="nav-welcome-section" onclick="showSection(\'welcome-section\')">📢 ' +
           esc(t.welcome) +
           "</button>";
 
@@ -995,45 +1302,42 @@
           renderRichText(welcomeText) +
           "</div></div></article>";
 
-        (course.modules || []).forEach(function (module, mIdx) {
-          const sectionId = "module-section-" + mIdx;
+        course.modules.forEach(function (module, mIdx) {
+          const sectionId = `module-section-${mIdx}`;
           const modTitle = pick(module.title, currentLang, t.module);
           const modDesc = pick(module.description, currentLang, "");
+          const modTitleHTML = formatModuleTitle(modTitle, currentLang);
 
-          navHTML +=
-            '<div class="module-block">' +
-            '<button class="module-btn" onclick="showSection(\'' +
-            sectionId +
-            "')\">" +
-            "<span>📅 " +
-            esc(modTitle) +
-            "</span>" +
-            "</button></div>";
+          navHTML += `
+            <div class="module-block">
+              <button class="module-btn" id="nav-${sectionId}" onclick="showSection('${sectionId}')">${modTitleHTML}</button>
+            </div>
+          `;
 
           mainHTML +=
             '<article id="' +
             sectionId +
             '" class="content-section">' +
             '<div class="module-head"><h2 class="module-title">' +
-            esc(modTitle) +
+            modTitleHTML +
             "</h2>" +
             (modDesc
               ? '<div class="module-desc">' + esc(modDesc) + "</div>"
               : "") +
             '</div><div class="lessons">';
 
-          (module.lessons || []).forEach(function (lesson, lIdx) {
-            const lesTitle = pick(lesson.title, currentLang, t.lesson);
-            const lesContent = pick(lesson.content, currentLang, "");
-            const links = parseLinks(pick(lesson.links, currentLang, ""));
+          (module.lessons || []).forEach(function (lesson) {
+            const lessonTitle = pick(lesson.title, currentLang, t.lesson);
+            const lessonContent = pick(lesson.content, currentLang, "");
+            const lessonLinks = parseLinks(pick(lesson.links, currentLang, ""));
 
-            let linksHTML = "";
-            if (links.length) {
-              linksHTML =
-                '<div class="links"><span class="links-title">🔗 ' +
+            let lessonLinksHTML = "";
+            if (lessonLinks.length) {
+              lessonLinksHTML =
+                '<div class="links"><span class="links-title">' +
                 esc(t.links) +
                 '</span><div class="links-list">' +
-                links
+                lessonLinks
                   .map(function (l) {
                     return (
                       '<a class="link-btn" href="' +
@@ -1048,33 +1352,36 @@
             }
 
             mainHTML +=
-              '<details class="lesson"' +
-              (lIdx === 0 ? " open" : "") +
-              ">" +
-              "<summary><h3>" +
-              esc(lesTitle) +
-              "</h3>" +
-              '<svg class="chev" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>' +
-              '</summary><div class="lesson-body">' +
-              '<div class="lesson-content">' +
-              renderRichText(lesContent) +
+              '<section class="lesson"><h3 class="lesson-title">' +
+              esc(lessonTitle) +
+              '</h3><div class="lesson-body"><div class="lesson-content">' +
+              renderRichText(lessonContent) +
               "</div>" +
-              linksHTML +
-              renderResource(lesson.resource_filename || "", t) +
-              "</div></details>";
+              lessonLinksHTML +
+              renderResource(lesson.resource_filename, t) +
+              "</div></section>";
           });
 
           mainHTML += "</div></article>";
         });
 
         document.getElementById("nav-container").innerHTML = navHTML;
-        document.getElementById("main-content").innerHTML = mainHTML;
+        const mainEl = document.getElementById("main-content");
+        mainEl.innerHTML = mainHTML;
+        mainEl.querySelectorAll("script").forEach(function (old) {
+          const n = document.createElement("script");
+          Array.from(old.attributes).forEach(function (a) {
+            n.setAttribute(a.name, a.value);
+          });
+          n.textContent = old.textContent;
+          old.replaceWith(n);
+        });
 
-        const target =
-          document.getElementById(activeSection) ||
-          document.getElementById("welcome-section");
-        activeSection = target.id;
-        target.classList.add("active");
+        showSection(
+          document.getElementById(activeSection)
+            ? activeSection
+            : "welcome-section",
+        );
       }
 
       buildUI();
